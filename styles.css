@@ -16,7 +16,7 @@ body {
 }
 
 /* General Container Styling */
-#movieList-container, #movie-display, #movie-information {
+#movieList-container, #movie-display, #movie-information, #purchased-tickets {
     height: 90vh; /* Takes 90% of the screen height */
     width: 30%; /* Each takes 30% of available space */
     min-width: 200px; /* Prevents divs from shrinking too much */
@@ -66,6 +66,85 @@ body {
     border-radius: 10px;
 }
 
+/* Movie Information Styling */
+#movie-information {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Makes the content scrollable if needed */
+}
+
+#movie-information h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+#movie-information p {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+#ticketButton {
+    display: block;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#ticketButton:hover {
+    background-color: #cc4525;
+}
+
+#ticketButton:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+/* Purchased Tickets Section */
+#purchased-tickets {
+    width: 30%;
+    min-width: 200px;
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    overflow-y: auto; /* Scrollable if too many items */
+}
+
+#purchased-tickets h3 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#purchased-tickets ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#purchased-tickets li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#purchased-tickets li:last-child {
+    border-bottom: none;
+}
+
 /* RESPONSIVE DESIGN: Adjust layout for smaller screens */
 @media screen and (max-width: 768px) {
     body {
@@ -74,7 +153,7 @@ body {
         align-items: center;
     }
 
-    #movieList-container, #movie-display, #movie-information {
+    #movieList-container, #movie-display, #movie-information, #purchased-tickets {
         width: 90%; /* Takes almost full width */
         height: auto; /* Adjusts height dynamically */
     }
