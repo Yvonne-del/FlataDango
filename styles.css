@@ -6,24 +6,26 @@
 
 body {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    justify-content: center; /* Centers items in a row */
+    flex-wrap: wrap; /* Allows elements to wrap when needed */
+    justify-content: center; /* Centers elements */
     align-items: center;
     height: 100vh;
-    width: 100%;
-    background-color: #f4f4f4; /* Optional background color */
+    width: 100vw;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
-#movieList-container, #movie-display, #movie-information  {
-    height: 90%; /* Makes the divs take 90% of the screen height */
-    width: 30%; /* Each div takes 30% of screen width */
-    min-width: 200px; /* Prevents divs from getting too small */
+/* General Container Styling */
+#movieList-container, #movie-display, #movie-information {
+    height: 90vh; /* Takes 90% of the screen height */
+    width: 30%; /* Each takes 30% of available space */
+    min-width: 200px; /* Prevents divs from shrinking too much */
+    max-width: 100%; /* Prevents going beyond screen size */
     margin: 10px;
-    border-radius: 10px; /* Optional rounded corners */
+    border-radius: 10px;
 }
-#movieList-container{
-    padding-left: 150px;
-}
+
+/* Movie List Styling */
 #movieList-container p {
     padding: 10px;
     margin: 0;
@@ -33,31 +35,47 @@ body {
     font-weight: bold;
     font-size: 15px;
 }
+
 /* Remove bottom border from the last item */
 #movieList-container p:last-child {
     border-bottom: none;
 }
+
 /* Hover effect */
 #movieList-container p:hover {
     background-color: #c7c5c5;
     transform: scale(1.02); /* Slight zoom effect */
 }
-#movie-display img {
-    width: 95%; /* Makes image fill the container */
-    height: 95%; /* Stretches it to fill the height */
-    object-fit: cover; /* Crops the image to maintain aspect ratio */
-    border-radius: 10px; /* Optional: Rounded corners */
+
+/* Movie Display Styling */
+#movie-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    max-width: 100%; /* Ensures it doesn’t overflow */
+    height: auto;
 }
 
-/* Responsive Design: Adjust for smaller screens */
+/* Movie Image Styling */
+#movie-display img {
+    width: 95%;
+    height: auto;
+    max-height: 95vh;
+    object-fit: contain; /* Ensures the full image is shown */
+    border-radius: 10px;
+}
+
+/* RESPONSIVE DESIGN: Adjust layout for smaller screens */
 @media screen and (max-width: 768px) {
     body {
-        flex-direction: column; /* Stack divs in a column */
-        justify-content: flex-start; /* Aligns items at the top */
+        flex-direction: column; /* Stack items in a column */
+        justify-content: flex-start;
+        align-items: center;
     }
 
-    div {
+    #movieList-container, #movie-display, #movie-information {
         width: 90%; /* Takes almost full width */
-        height: 30%; /* Adjust height for better fit */
+        height: auto; /* Adjusts height dynamically */
     }
 }

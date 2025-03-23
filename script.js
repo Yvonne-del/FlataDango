@@ -25,5 +25,19 @@ getMovieList();
 async function getMoviePoster(movieId){
     const res = await fetch(`${baseURL}/${movieId}`)
     const data = await res.json()
-    movieDisplay.innerHTML = `<img src="${data.poster}" alt="${data.title}" width="200">`
+    // Convert capacity and tickets_sold to numbers
+    const capacity = Number(data.capacity) || 0;
+    const ticketsSold = Number(data.tickets_sold) || 0;
+    const remainingTickets = capacity - ticketsSold;
+    movieDisplay.innerHTML = `<img src="${data.poster}" alt="${data.title}" width="200">`;
+    movieInfo.innerHTML = `
+         <h2>${data.title}</h2>
+         <p><strong>Runtime: </strong>${data.runtime}</p>
+         <p><strong>Showtime: </strong> ${data.showtime}</p>
+         <p><strong>Description: </strong> ${data.description}</p>
+        <p><strong>Tickets:</strong> ${remainingTickets}</p>
+        <button id="ticketButton">Buy Ticket</button>
+    `
 }
+
+
