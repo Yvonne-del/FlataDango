@@ -14,13 +14,33 @@ body {
     background-color: #f4f4f4; /* Optional background color */
 }
 
-div {
-    border: 2px solid black;
+#movieList-container, #movie-display, #movie-information  {
     height: 90%; /* Makes the divs take 90% of the screen height */
     width: 30%; /* Each div takes 30% of screen width */
     min-width: 200px; /* Prevents divs from getting too small */
     margin: 10px;
     border-radius: 10px; /* Optional rounded corners */
+}
+#movieList-container{
+    padding-left: 150px;
+}
+#movieList-container p {
+    padding: 10px;
+    margin: 0;
+    border-bottom: 1px solid #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    font-size: 15px;
+}
+/* Remove bottom border from the last item */
+#movieList-container p:last-child {
+    border-bottom: none;
+}
+/* Hover effect */
+#movieList-container p:hover {
+    background-color: #c7c5c5;
+    transform: scale(1.02); /* Slight zoom effect */
 }
 
 /* Responsive Design: Adjust for smaller screens */
