@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center; /* Centers items in a row */
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f4f4f4; /* Optional background color */
+}
+
+div {
+    border: 2px solid black;
+    height: 90%; /* Makes the divs take 90% of the screen height */
+    width: 30%; /* Each div takes 30% of screen width */
+    min-width: 200px; /* Prevents divs from getting too small */
+    margin: 10px;
+    border-radius: 10px; /* Optional rounded corners */
+}
+
+/* Responsive Design: Adjust for smaller screens */
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stack divs in a column */
+        justify-content: flex-start; /* Aligns items at the top */
+    }
+
+    div {
+        width: 90%; /* Takes almost full width */
+        height: 30%; /* Adjust height for better fit */
+    }
+}
