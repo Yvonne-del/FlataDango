@@ -42,6 +42,12 @@ body {
     background-color: #c7c5c5;
     transform: scale(1.02); /* Slight zoom effect */
 }
+#movie-display img {
+    width: 95%; /* Makes image fill the container */
+    height: 95%; /* Stretches it to fill the height */
+    object-fit: cover; /* Crops the image to maintain aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+}
 
 /* Responsive Design: Adjust for smaller screens */
 @media screen and (max-width: 768px) {
