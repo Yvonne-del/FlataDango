@@ -67,7 +67,7 @@ body {
     border-radius: 10px;
 }
 
-/* Movie Details & Purchased Tickets (Right Side) */
+/* Movie Details (Right Side) */
 #movie-information {
     width: 35%;
     background: white;
@@ -103,53 +103,6 @@ body {
 #movie-information button:disabled {
     background-color: gray;
     cursor: not-allowed;
-}
-
-/* Purchased Tickets Section */
-#purchased-tickets {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-#purchased-tickets h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-#purchased-tickets ul {
-    list-style: none;
-    padding: 0;
-}
-
-#purchased-tickets li {
-    font-size: 16px;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#purchased-tickets li:last-child {
-    border-bottom: none;
-}
-
-/* Remove Ticket Button */
-.remove-ticket {
-    background-color: red;
-    color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.remove-ticket:hover {
-    background-color: darkred;
 }
 
 /* Responsive Design */
