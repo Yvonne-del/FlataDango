@@ -13,11 +13,17 @@ async function getMovieList(){
     data.forEach(item => {
         const movies = document.createElement("p")
         movies.textContent = `${item.title.toUpperCase()}`
-        movieItem.dataset.movieId = item.id; // Store movie ID for fetching details later
+        movies.dataset.movieId = parseInt(item.id, 10); // Store movie ID for fetching details later
         movieList.appendChild(movies);
         //to fetch use movie details for display 
-        movieItem.addEventListener("click", () => getMovieDetails(item.id));
+        movies.addEventListener("click", () => getMoviePoster(parseInt(item.id, 10)));
     });
 }
 getMovieList();
-movie-information
+
+//GET method to fetch movie details after clicking the title in title list
+async function getMoviePoster(movieId){
+    const res = await fetch(`${baseURL}/${movieId}`)
+    const data = await res.json()
+    movieDisplay.innerHTML = `<img src="${data.poster}" alt="${data.title}" width="200">`
+}
