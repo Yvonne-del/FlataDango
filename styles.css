@@ -6,34 +6,40 @@
 
 body {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
     height: 100vh;
     width: 100vw;
     background-color: #f4f4f4;
     overflow-x: hidden;
+    padding: 20px;
 }
 
-/* General Container Styling */
+/* General Layout for Sections */
 #movieList-container, #movie-display, #movie-information {
     height: 90vh;
-    width: 30%;
-    min-width: 200px;
-    max-width: 100%;
-    margin: 10px;
+    min-width: 30%;
     border-radius: 10px;
+    padding: 15px;
 }
 
-/* Movie List Styling */
+/* Movie List (Left Side) */
+#movieList-container {
+    width: 25%;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
 #movieList-container p {
     padding: 10px;
-    margin: 0;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #ddd;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 #movieList-container p:last-child {
@@ -45,42 +51,44 @@ body {
     transform: scale(1.02);
 }
 
-/* Movie Display Styling */
+/* Movie Display (Center) */
 #movie-display {
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    max-width: 100%;
-    height: auto;
 }
 
 #movie-display img {
-    width: 95%;
+    width: 100%;
     height: auto;
-    max-height: 95vh;
+    max-height: 85vh;
     object-fit: contain;
     border-radius: 10px;
 }
 
-/* Movie Information Styling */
+/* Movie Details & Purchased Tickets (Right Side) */
 #movie-information {
-    background: #fff;
+    width: 35%;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 #movie-information h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 10px;
 }
 
 #movie-information p {
-    font-size: 14px;
+    font-size: 16px;
     margin: 5px 0;
 }
 
+/* Buy Ticket Button */
 #movie-information button {
     background-color: #ff5733;
     color: white;
@@ -89,6 +97,7 @@ body {
     margin-top: 10px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 #movie-information button:disabled {
@@ -116,7 +125,7 @@ body {
 }
 
 #purchased-tickets li {
-    font-size: 14px;
+    font-size: 16px;
     padding: 8px;
     border-bottom: 1px solid #ddd;
     display: flex;
@@ -128,7 +137,7 @@ body {
     border-bottom: none;
 }
 
-/* Remove Button */
+/* Remove Ticket Button */
 .remove-ticket {
     background-color: red;
     color: white;
@@ -136,23 +145,23 @@ body {
     padding: 5px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .remove-ticket:hover {
     background-color: darkred;
 }
 
-/* RESPONSIVE DESIGN */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
     body {
         flex-direction: column;
-        justify-content: flex-start;
         align-items: center;
     }
 
     #movieList-container, #movie-display, #movie-information {
         width: 90%;
         height: auto;
+        margin-bottom: 20px;
     }
 }
