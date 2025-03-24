@@ -13,8 +13,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         movies.forEach((movie, index) => {
             const movieItem = document.createElement("div");
             movieItem.classList.add("movie-item");
-            movieItem.innerHTML = `<p>${movie.title}</p>`;
+            movieItem.innerHTML = `<p id="title">${movie.title}</p>`;
+            const deleteTitle = document.createElement("button")
+            deleteTitle.textContent = " x "
+            deleteTitle.addEventListener("click", () => deleteMovieTitle(movie.id))
+
             movieItem.addEventListener("click", () => getMovieDetails(movie.id));
+            movieItem.appendChild(deleteTitle)
             movieListContainer.appendChild(movieItem);
 
             // Load first movie by default
@@ -22,6 +27,16 @@ document.addEventListener("DOMContentLoaded", async function () {
                 getMovieDetails(movie.id);
             }
         });
+    }
+    const deleteMovieTitle = async (id) =>{
+        const res = await fetch(`${baseURL}/${id}`,{
+            method:`DELETE`,
+        })
+        if(res.ok){
+            fetchMovies();
+        }else{
+            alert("failed to delete animal")
+        }
     }
 
     //GET movie details when movie title is clicked
