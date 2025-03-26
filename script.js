@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const baseURL = "https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/Yvonne-del/FlataDango/main/db.json";
-
+    const baseURL = "https://raw.githubusercontent.com/Yvonne-del/FlataDango/main/db.json";
     const movieListContainer = document.getElementById("movieList-container");
     const movieDisplay = document.getElementById("movie-display");
     const movieInfo = document.getElementById("movie-information");
@@ -14,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         movies.forEach((movie, index) => {
             const movieItem = document.createElement("div");
             movieItem.classList.add("movie-item");
+            movieItem.id = `movie-${movie.id}`; // Assign an ID for easy removal
             movieItem.innerHTML = `<p id="title">${movie.title}</p>`;
             const deleteTitle = document.createElement("button")
             deleteTitle.textContent = " x "
@@ -29,14 +29,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         });
     }
-    const deleteMovieTitle = async (id) =>{
-        const res = await fetch(`${baseURL}/${id}`,{
-            method:`DELETE`,
-        })
-        if(res.ok){
-            fetchMovies();
-        }else{
-            alert("failed to delete animal")
+
+    const deleteMovieTitle = (id) => {
+        const movieItem = document.getElementById(`movie-${id}`);
+        if (movieItem) {
+            movieItem.remove(); // Just removes it from the UI, no API call
         }
     }
 
