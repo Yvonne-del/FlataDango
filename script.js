@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         movies.forEach((movie, index) => {
             const movieItem = document.createElement("div");
             movieItem.classList.add("movie-item");
-            movieItem.id = `movie-${movie.id}`; // Assign an ID for easy removal
             movieItem.innerHTML = `<p id="title">${movie.title}</p>`;
             const deleteTitle = document.createElement("button")
             deleteTitle.textContent = " x "
@@ -29,11 +28,14 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         });
     }
-
-    const deleteMovieTitle = (id) => {
-        const movieItem = document.getElementById(`movie-${id}`);
-        if (movieItem) {
-            movieItem.remove(); // Just removes it from the UI, no API call
+    const deleteMovieTitle = async (id) =>{
+        const res = await fetch(`${baseURL}/${id}`,{
+            method:`DELETE`,
+        })
+        if(res.ok){
+            fetchMovies();
+        }else{
+            alert("failed to delete animal")
         }
     }
 
