@@ -50,8 +50,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         let remainingTickets = capacity - ticketsSold;
 
         // Display movie poster in the first div
-        movieDisplay.innerHTML = `<img src="${movie.poster}" alt="${movie.title}" width="200">`;
-
+        movieDisplay.innerHTML = `
+            <img src="${movie.poster}" alt="${movie.title}" width="200" onerror="this.src='fallback-image.jpg'">
+        `;
+    
         // Display movie details in the third div
         movieInfo.innerHTML = `
             <h2>${movie.title}</h2>
