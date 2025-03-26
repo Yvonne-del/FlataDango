@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async function () {
+window.addEventListener("DOMContentLoaded", async function () {
     const baseURL = "http://localhost:3000/films";
     const movieListContainer = document.getElementById("movieList-container");
     const movieDisplay = document.getElementById("movie-display");
