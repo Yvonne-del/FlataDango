@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const baseURL = "https://raw.githubusercontent.com/Yvonne-del/FlataDango/main/db.json";
+    const baseURL = "https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/Yvonne-del/FlataDango/main/db.json";
+
     const movieListContainer = document.getElementById("movieList-container");
     const movieDisplay = document.getElementById("movie-display");
     const movieInfo = document.getElementById("movie-information");
