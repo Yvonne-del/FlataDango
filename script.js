@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const baseURL = "http://localhost:3000/films";
+    const baseURL = "https://flatadango-iewv.onrender.com/films";
     const movieListContainer = document.getElementById("movieList-container");
     const movieDisplay = document.getElementById("movie-display");
     const movieInfo = document.getElementById("movie-information");
