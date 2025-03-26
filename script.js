@@ -7,10 +7,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     //GET the movie titles and display them in browser
     async function fetchMovies() {
         const res = await fetch(baseURL);
-        const movies = await res.json();
+        const textData = await res.text(); // Fetch as text first
+        const movies = JSON.parse(textData); // Convert text to JSON manually
+
         movieListContainer.innerHTML = ""; // Clear existing list
 
-        movies.forEach((movie, index) => {
+        movies.films.forEach((movie, index) => {
             const movieItem = document.createElement("div");
             movieItem.classList.add("movie-item");
             movieItem.innerHTML = `<p id="title">${movie.title}</p>`;
