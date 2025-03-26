@@ -42,17 +42,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     //GET movie details when movie title is clicked
-    async function getMovieDetails(movieId) {
-        const res = await fetch(`${baseURL}/${movieId}`);
-        const movie = await res.json();
-
-        //ensure to load the capacity and ticket_sold values correctly as numbers
+   // GET movie details when movie title is clicked
+    async function getMovieDetails(movie) {
+    // Ensure numeric values are handled correctly
         const capacity = Number(movie.capacity) || 0;
         const ticketsSold = Number(movie.tickets_sold) || 0;
         let remainingTickets = capacity - ticketsSold;
-        //display movie poster in the first div element
+
+        // Display movie poster in the first div
         movieDisplay.innerHTML = `<img src="${movie.poster}" alt="${movie.title}" width="200">`;
-        //display movie details in the third div element
+
+        // Display movie details in the third div
         movieInfo.innerHTML = `
             <h2>${movie.title}</h2>
             <p><strong>Runtime: </strong>${movie.runtime}</p>
@@ -61,10 +61,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             <p><strong>Tickets Remaining:</strong> <span id="ticketCount">${remainingTickets}</span></p>
             <button id="ticketButton" type="button" ${remainingTickets === 0 ? "disabled" : ""}>Buy Ticket</button>
         `;
-        //add event listener to the ticket button to make changes after buying a ticket
+
+        // Add event listener to the ticket button
         const ticketButton = document.getElementById("ticketButton");
-        ticketButton.addEventListener("click", event => purchaseTicket(movie, remainingTickets));
-    }
+        ticketButton.addEventListener("click", () => purchaseTicket(movie, remainingTickets));
+    }   
+
 
     //prevent buying of tickets when tickets end
     function purchaseTicket(movie, remainingTickets) {
